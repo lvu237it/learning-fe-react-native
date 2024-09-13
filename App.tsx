@@ -1,9 +1,18 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useState } from 'react';
+import { Button, StyleSheet, Text, View } from 'react-native';
 
 export default function App() {
+  const [name, setName] = useState<string>('vulv')
+  const [test, setTest] = useState({
+    name: 'vulv',
+    age: 25
+  })
+  const [count, setCount] = useState<number>(0)
+
   return (
     <>
+    {/* Video 3 4 */}
     <View style={styles.container}>
       {/* trường hợp style với text, nếu style text nằm ở view và bọc text
       thì phần text sẽ không kế thừa được style từ phần view
@@ -35,9 +44,12 @@ export default function App() {
       <Text>ab!</Text>
       {/* <StatusBar style="auto" /> */}
     </View>
+
+    {/* Video 5 */}
     <View style={styles.container}>
-      <Text>abccccc!</Text>
-      {/* <StatusBar style="auto" /> */}
+      <Text> {JSON.stringify(test)} Hello World video 5!</Text>
+      <Text>count = {count}</Text>
+      <Button title='Increase' onPress={() => setCount( count + 1)}/>
     </View>
     </>
   );
