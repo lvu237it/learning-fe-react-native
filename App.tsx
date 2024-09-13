@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function App() {
   const [name, setName] = useState<string>('vulv')
@@ -9,7 +9,8 @@ export default function App() {
     age: 25
   })
   const [count, setCount] = useState<number>(0)
-
+  const [nameVid6, setNameVid6] = useState<string>('')
+  const [ageVid6, setAgeVid6] = useState<number>(0)
   return (
     <>
     {/* Video 3 4 */}
@@ -49,8 +50,25 @@ export default function App() {
     <View style={styles.container}>
       <Text> {JSON.stringify(test)} Hello World video 5!</Text>
       <Text>count = {count}</Text>
-      <Button title='Increase' onPress={() => setCount( count + 1)}/>
+      <Button color='green' title='Increase' onPress={() => setCount(count + 1)}/>
     </View>
+
+    {/* Video 6 */}
+    <View style={styles.container}>
+      <Text style={{fontSize: 40, fontWeight: 600, color: 'grey'}}>Name: {nameVid6}</Text>
+      <TextInput 
+      autoCapitalize={'words'} 
+      multiline onChangeText={(value) => setNameVid6(value)} 
+      style={{borderWidth: 1, borderColor: 'blue', width: 200, padding: 15}}/>
+      <Text 
+      style={{fontSize: 40, fontWeight: 600, color: 'grey'}}
+      >Age: {ageVid6}</Text>
+      <TextInput 
+      keyboardType='numeric' 
+      maxLength={2} onChangeText={(value) => setAgeVid6(+value)} 
+      style={{borderWidth: 1, borderColor: 'blue', width: 200, padding: 15}}/>
+    </View>
+
     </>
   );
 }
